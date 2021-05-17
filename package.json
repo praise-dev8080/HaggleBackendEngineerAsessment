@@ -4,7 +4,7 @@
   "description": "a graphql service that parses a website and returns its meta-data",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon .",
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
