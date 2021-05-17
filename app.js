@@ -15,7 +15,7 @@ const app = express();
 //setting cache and environment variables
 const cache = apicache.middleware;
 const cacheSuccess = cache('10 minutes');
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000 ;
 const hostname = process.env.HOST || 'localhost';
 
 //middlewares setup
