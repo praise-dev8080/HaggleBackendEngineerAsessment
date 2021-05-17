@@ -22,7 +22,6 @@ const hostname = process.env.HOST || 'localhost';
 app.use(express.json());
 
 
-
 // set CORS headers
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods',
@@ -32,8 +31,9 @@ app.use((req, res, next) => {
     next();
 });
 
+
 //graphql endpoints
-app.use('/graphql', cacheSuccess, express_graphql.graphqlHTTP({
+app.use('/graphql', express_graphql.graphqlHTTP({
     schema,
     rootValue,
     graphiql: true,   
@@ -41,6 +41,11 @@ app.use('/graphql', cacheSuccess, express_graphql.graphqlHTTP({
         return errorHandler(err);
     }
 }));
+
+
+app.use("/", (req, res)=> {
+    res.redirect("/graphql")
+});
 
 
 
