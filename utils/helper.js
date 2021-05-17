@@ -7,7 +7,7 @@ exports.errorHandler = (err) => {
     const code = err.originalError.code || 500;
     return {
         message,
-        code,
+        status: code,
         data
     };
 
@@ -16,4 +16,18 @@ exports.errorHandler = (err) => {
 exports.validateUrl = (url) => {
     const regex = new RegExp(/^(ftp|http|https):\/\/[^ "]+$/);
     return regex.test(url);
+}
+
+exports.largestImage = (images) => {
+    let largestimage;
+    let largestSize = Number.NEGATIVE_INFINITY;
+
+    for (let image of images){
+        let curr = parseFloat(image.width) * parseFloat(image.height);
+        if (curr > largestSize){
+            largestSize = curr;
+            largestimage = image.url;
+        }
+    }
+    return [largestSize, largestimage];
 }

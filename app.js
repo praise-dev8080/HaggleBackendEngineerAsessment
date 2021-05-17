@@ -1,5 +1,5 @@
-const {express} = require("express");
-const graphql = require("express-graphql");
+const express = require("express");
+const express_graphql = require("express-graphql");
 const rootValue = require("./graphql/resolvers");
 const schema = require("./graphql/schema");
 const {errorHandler} = require("./utils/helper");
@@ -19,12 +19,11 @@ app.use((req, res, next) => {
 });
 
 
-app.use("/graphql", graphql({
+app.use('/graphql', express_graphql.graphqlHTTP({
     schema,
     rootValue,
-    graphqliq: true,   
-    //error handling
-    formatError(err) {
+    graphiql: true,   
+    customFormatErrorFn(err) {
         return errorHandler(err);
     }
 }));
@@ -33,4 +32,6 @@ app.use("/graphql", graphql({
 
 
 //start server
-app.listen()
+app.listen(3000, ()=>{
+    console.log("server has started")
+})
