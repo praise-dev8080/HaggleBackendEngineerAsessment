@@ -1,8 +1,5 @@
-const {validateUrl, largestImage} = require("../utils/helper")
-const domino = require("domino");
+const {validateUrl, largestImage} = require("../utils/helper");
 const meta = require("html-metadata-parser");
-const fetch = require("node-fetch");
-const e = require("express");
 
 module.exports = {
     //resolver for the getMetaData query
@@ -38,6 +35,7 @@ module.exports = {
                   image = metadata.og.image
               };
                 //return metaData
+                
                     return {
                         title: metadata.meta.title,
                         description: metadata.meta.description,
