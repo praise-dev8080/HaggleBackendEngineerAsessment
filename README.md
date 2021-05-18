@@ -3,7 +3,7 @@
 
 ## Running the project locally on a Node server
 1. Clone the repository and navigate to the project
-2. 2. Run "npm install" to download all dependencies
+2. Run "npm install" to download all dependencies
 3. (optional) Create a '.env" file to set environment variables i.e. PORT, HOSTNAME 
 4. Run "npm start" 
 5. Go to localhostname:port
